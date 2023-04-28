@@ -23,6 +23,10 @@ steps:
   inputs:
     command: 'build'
 
+# ...
+# do this after other tasks such as building
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'test'
+    command: test
+    projects: '**/UnitTest1.csproj'
+    arguments: '--configuration $(buildConfiguration)'
