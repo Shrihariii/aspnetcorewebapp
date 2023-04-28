@@ -22,11 +22,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-- task: CopyFiles@2
-  inputs:
-    targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
-- task: PublishBuildArtifacts@1    
-  displayName: 'Publish Artifact: drop'
+- task: DotNetCoreCLI@2
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+    command: 'test'
